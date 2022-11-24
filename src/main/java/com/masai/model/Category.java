@@ -24,11 +24,12 @@ public class Category {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Integer id;
+	private Integer categoryId;
+	
 	private String name;
 	
-	@OneToMany(cascade = CascadeType.ALL)
-	List<Product> product;
+	@OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
+	private List<Product> product;
 	
 
 }

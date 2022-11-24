@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
 import lombok.AllArgsConstructor;
@@ -25,17 +26,17 @@ public class Order {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer orderId;
 	
-	private LocalDateTime date;
-	
-//	@OneToOne
-//	Cart cart;
+	private LocalDateTime orderdate;
 	
 	private String status;
 	
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne
+	private Cart cart;
+	
+	@ManyToOne(cascade = CascadeType.ALL)
 	Customer customer;
 
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne(mappedBy = "order", cascade = CascadeType.ALL)
 	private Bill bill;
 	
 }

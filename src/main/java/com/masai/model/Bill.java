@@ -9,6 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -25,14 +27,15 @@ public class Bill {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer billId;
 	
-	private LocalDate date;
-	
-	@OneToOne(cascade = CascadeType.ALL)
-	private Order order;
+	private LocalDate billdate;
 	
 	private Integer totalItem;
 	
 	private Integer totalPrice;
+	
+	@JsonIgnore
+	@OneToOne(cascade = CascadeType.ALL)
+	private Order order;
 	
 
 }

@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -24,10 +25,16 @@ public class Cart {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer cartId;
-
-	
-	@OneToMany(cascade = CascadeType.ALL)
-	List<Product> product;
 	
 	private Integer totalPrice;
+	
+	private Integer totalItems;
+	
+	@OneToOne(cascade = CascadeType.ALL)
+	private Customer customer;
+	
+	@OneToMany(cascade = CascadeType.ALL)
+	private List<Product> product;
+	
+	
 }

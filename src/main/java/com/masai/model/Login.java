@@ -10,17 +10,12 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-@Entity
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
-@ToString
 public class Login {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Integer loginId;
+	private String mobile;
 	
-	private Integer password;
+	private String password;
+	
 	
 }

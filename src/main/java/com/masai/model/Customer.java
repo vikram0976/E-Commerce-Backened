@@ -28,22 +28,22 @@ public class Customer {
 	private Integer customerId;
 	
 	private String name;
+	private String mobile;
 	private Integer age;
 	private String gender;
-	
+	private String email;
+	private Integer password;
 
 	@Embedded
 	private Address address;
 	
-	private Integer mobile;
-	private String email;
-	private Integer password;
+
 	
-	@OneToOne(cascade = CascadeType.ALL)
-	Cart cart;
+	@OneToOne(mappedBy = "customer", cascade = CascadeType.ALL)
+	private Cart cart;
 	
-	@OneToMany(cascade = CascadeType.ALL)
-	List<Order> order;
+	@OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
+	private List<Order> order;
 	
 	
 	

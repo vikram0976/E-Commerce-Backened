@@ -1,5 +1,5 @@
 package com.masai.controller;
 
-public class CustomerController {
+public class ProductController {
 	
 }
