@@ -1,6 +1,7 @@
 package com.masai.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -34,8 +35,13 @@ public class CustomerServiceImpl implements CustomerService {
 
 	@Override
 	public Customer viewCustomer(int customerId) throws CustomerException {
-		// TODO Auto-generated method stub
-		return null;
+	     Optional<Customer> c=cr.findById(customerId);
+		
+		if(c.isPresent()) {
+			return c.get();
+		}
+		throw new CustomerException("user not found with id : "+customerId);	
+		
 	}
 
 	@Override
