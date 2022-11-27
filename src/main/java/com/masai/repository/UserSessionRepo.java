@@ -5,11 +5,11 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.masai.model.Customer;
+import com.masai.model.CurrentUserSession;
 
 @Repository
-public interface CustomerRepo extends JpaRepository<Customer, Integer>{
+public interface UserSessionRepo extends JpaRepository<CurrentUserSession, Integer>{
 
-	public List<Customer> findByMobile(String mobile);
+	public List<CurrentUserSession> findByUuid(String uuid);
 	
 }

@@ -32,8 +32,6 @@ public class Order {
 	
 	@OneToOne
 	private Cart cart;
-	
-	
 
 	@OneToOne(mappedBy = "order", cascade = CascadeType.ALL)
 	private Bill bill;
