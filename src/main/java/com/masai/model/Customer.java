@@ -2,7 +2,9 @@ package com.masai.model;
 
 import java.util.List;
 
+
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,37 +13,37 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
-import lombok.AllArgsConstructor;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
 
 @Entity
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
-@ToString
 public class Customer {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer customerId;
 	
-	private String name;
+	private String customerName;
+	
+	@Column(unique = true)
 	private String mobile;
-	private Integer age;
-	private String gender;
+	
+	@Column(unique = true)
 	private String email;
+	
 	private Integer password;
 
 	@Embedded
 	private Address address;
 	
 
-	
+	@JsonIgnore
 	@OneToOne(mappedBy = "customer", cascade = CascadeType.ALL)
 	private Cart cart;
 	
+	@JsonIgnore
 	@OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
 	private List<Order> order;
 	

@@ -2,6 +2,7 @@ package com.masai.model;
 
 import java.util.List;
 
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,16 +11,11 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+
 
 @Entity
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
-@ToString
 public class Cart {
 
 	@Id
@@ -34,7 +30,7 @@ public class Cart {
 	private Customer customer;
 	
 	@OneToMany(cascade = CascadeType.ALL)
-	private List<Product> product;
+	private List<Product> products;
 	
 	
 }
