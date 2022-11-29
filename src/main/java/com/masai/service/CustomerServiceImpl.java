@@ -81,8 +81,8 @@ public class CustomerServiceImpl implements CustomerService {
 		
 		Optional<Customer> c=cr.findById(customerId);
 		if(c.isPresent()) {
-//			List<Order> list = c.get().getOrder();
-			List<Order>list=c.get().getOrders();
+			List<Order> list = c.get().getOrder();
+//			List<Order>list=c.get().getOrders();
 			if(list.size()==0) {
 				throw new CustomerException("order list is empty");
 			}
