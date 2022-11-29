@@ -2,7 +2,6 @@ package com.masai.model;
 
 import java.time.LocalDateTime;
 import java.time.LocalTime;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

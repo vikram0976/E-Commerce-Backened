@@ -20,20 +20,31 @@ import io.swagger.v3.oas.annotations.parameters.RequestBody;
 @RestController
 @RequestMapping("/customer")
 public class CustomerController {
-	
 	@Autowired
-	private CustomerService cs;
-	
-	@PostMapping("/register")
-	public ResponseEntity<Customer> registerCustomer(@Valid @RequestBody Customer customer) throws CustomerException {
-		Customer c = cs.registerCustomer(customer);
-		return new ResponseEntity<Customer>(c,HttpStatus.ACCEPTED);
+	private CustomerService customerService; 
+
+	@PostMapping("/customer")
+	public ResponseEntity<Customer> addCustomer( @RequestBody Customer customer) throws CustomerException{
+		
+		 Customer cus = customerService.registerCustomer(customer);
+		 
+		 return new ResponseEntity<Customer>(cus, HttpStatus.OK);
+
 	}
 	
-	@GetMapping("/view/{id}")
-	public ResponseEntity<Customer> viewCustomer(@PathVariable("id") int customerId) throws CustomerException {
-		Customer c=cs.viewCustomer(customerId);
-		return new ResponseEntity<Customer>(c,HttpStatus.ACCEPTED);
-	}
+//	@Autowired
+//	private CustomerService cs;
+//	
+//	@PostMapping("/register")
+//	public ResponseEntity<Customer> registerCustomer(@Valid @RequestBody Customer customer) throws CustomerException {
+//		Customer c = cs.registerCustomer(customer);
+//		return new ResponseEntity<Customer>(c,HttpStatus.ACCEPTED);
+//	}
+	
+//	@GetMapping("/view/{id}")
+//	public ResponseEntity<Customer> viewCustomer(@PathVariable("id") int customerId) throws CustomerException {
+//		Customer c=cs.viewCustomer(customerId);
+//		return new ResponseEntity<Customer>(c,HttpStatus.ACCEPTED);
+//	}
 	
 }
