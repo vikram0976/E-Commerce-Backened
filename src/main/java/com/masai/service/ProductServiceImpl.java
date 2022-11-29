@@ -29,8 +29,8 @@ public class ProductServiceImpl implements ProductService{
 			throw new CategoryException("category not found with id "+categoryId);
 		}
 		Category category=cat.get();
-		category.getProduct().add(product);
-//		category.getProducts().add(product);
+//		category.getProduct().add(product);
+		category.getProducts().add(product);
 		
 		product.setCategory(category);
 		

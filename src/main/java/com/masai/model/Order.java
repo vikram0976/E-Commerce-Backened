@@ -1,5 +1,7 @@
 package com.masai.model;
 
+import java.time.LocalDate;
+
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import javax.persistence.CascadeType;
@@ -9,18 +11,20 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 import lombok.Data;
 
 @Entity
 @Data
+@Table(name = "orders")
 public class Order {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer orderId;
 	
-	private LocalDateTime orderdate;
+	private LocalDate orderDate;
 	
 	private LocalTime orderTime;
 	
@@ -28,11 +32,11 @@ public class Order {
 	
 	@ManyToOne(cascade = CascadeType.ALL)
 	private Customer customer;
-	
+
 	@OneToOne
 	private Cart cart;
-
-	@OneToOne(mappedBy = "order", cascade = CascadeType.ALL)
+	
+	@OneToOne(mappedBy = "order" ,cascade = CascadeType.ALL)
 	private Bill bill;
 	
 }

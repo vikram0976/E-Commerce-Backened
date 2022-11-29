@@ -55,8 +55,8 @@ public class CategoryServiceImpl implements CategoryService{
 	public List<Product> productByCategory(int categoryId) throws CategoryException {
 		Optional<Category> c=cr.findById(categoryId);
 		if(c.isPresent()) {
-			return c.get().getProduct();
-//			return c.get().getProducts();
+//			return c.get().getProduct();
+			return c.get().getProducts();
 		}
 		throw new CategoryException("category not found with id "+categoryId);
 	}
