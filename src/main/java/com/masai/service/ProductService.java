@@ -19,7 +19,7 @@ public interface ProductService {
 	
 	public Product updateProduct(Product product)throws ProductException;
 	
-	public List<Product> productByName(String name)throws ProductException;
+//	public List<Product> productByName(String name)throws ProductException;
 	
 
 }

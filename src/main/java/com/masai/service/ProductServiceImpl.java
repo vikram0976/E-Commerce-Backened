@@ -91,13 +91,13 @@ public class ProductServiceImpl implements ProductService{
 		throw new ProductException("product not found with id "+product.getProductId());
 	}
 
-	@Override
-	public List<Product> productByName(String name) throws ProductException {
-		List<Product>list=pr.findByProductName(name);
-		if(list.size()==0) {
-			throw new ProductException("product not found with name "+name);
-		}
-		return list;
-	}
+//	@Override
+//	public List<Product> productByName(String name) throws ProductException {
+//		List<Product>list=pr.findByProductName(name);
+//		if(list.size()==0) {
+//			throw new ProductException("product not found with name "+name);
+//		}
+//		return list;
+//	}
 
 }

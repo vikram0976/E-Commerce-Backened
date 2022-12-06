@@ -10,6 +10,6 @@ import com.masai.model.Product;
 @Repository
 public interface ProductRepo extends JpaRepository<Product, Integer> {
 
-	public List<Product> findByProductName(String productName);
+//	public List<Product> findByProductName(String productName);
 	
 }
